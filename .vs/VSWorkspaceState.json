@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\public",
+    "\\src",
+    "\\src\\assets",
+    "\\src\\assets\\images",
+    "\\src\\components",
+    "\\src\\layouts",
+    "\\src\\Logic\\EventsLogic",
+    "\\src\\pages",
+    "\\src\\pages\\landing"
+  ],
+  "SelectedNode": "\\src\\assets\\images\\barcode.png",
+  "PreviewInSolutionExplorer": false
+}
