@@ -11,6 +11,7 @@ function SignupLogic() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [CPassword, setCPassword] = useState("");
+  const [role, setRole] = useState("");
   const [validateMessage, setValidateMessage] = useState(null);
   const [signingin, setSigningin] = useState(false);
 
@@ -79,6 +80,27 @@ function SignupLogic() {
           )}
         </button>
       ),
+    },
+    {
+      label: "Role",
+      placeholder: "Customer",
+      value: role,
+      cb: setRole,
+      keyboard: "default",
+      defaultValue: "Customer",
+      options: [{
+          value: "Customer",
+          label: "Customer",
+        },
+        {
+          value: "Venue Owner",
+          label: "Venue Owner",
+        },
+        {
+          value: "Admin",
+          label: "Admin",
+        },
+      ]
     },
   ];
 
