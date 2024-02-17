@@ -17,7 +17,7 @@ function Footer() {
     </div>
     <hr className='bg-neutral-100 border border-neutral-100 opacity-25'></hr>
     <div>
-        <p className='text-neutral-300 text-xs md:text-sm text-center'>&copy; Unknown {new Date().getFullYear()} | All rights reserved | <Link className='hover:text-accent hover:underline' target='_blank' to='https://github.com/pranaygoel02'>Pranay Goel</Link></p>
+        <p className='text-neutral-300 text-xs md:text-sm text-center'>&copy; Unknown {new Date().getFullYear()} | All rights reserved</p>
     </div>
     </div>
   )

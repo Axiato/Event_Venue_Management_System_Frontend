@@ -8,7 +8,7 @@ function Navbar() {
 
   const [navData, setNavData] = useState([]);
 
-  let token = localStorage.getItem("token");
+  let token = false;
 
   useEffect(() => {
     
@@ -21,7 +21,7 @@ function Navbar() {
       {
         title: "Dashboard",
         link: "/dashboard",
-        show: token ? true : false,
+        show: token ? true : true,
       },
       {
         title: "Login",

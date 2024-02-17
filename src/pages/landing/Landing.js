@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -24,12 +25,14 @@ function Landing() {
   const testEvent1 = [
     "The Nashville House",
     "Catering",
-    "../assets/images/Logo1.png",
+    "../assets/images/Test1.jpg",
     1,
     "February 20",
   ]
 
   const events = [testEvent1];
+
+  const token = false;
 
 
   return (
@@ -48,6 +51,20 @@ function Landing() {
             <p className=" md:max-w-[90%] py-4 text-slate-400">
               RSVP and Management Made Effortless for Creators
             </p>
+            <div className="inline-flex items-center gap-2">
+              <Link
+                to={token ? "/dashboard" : "/auth/signup"}
+                className="bg-gradient-to-b shadow-xl focus:ring-accent from-accent to-accent/90 rounded-full p-4 text-white text-center"
+              >
+                {token ? "Go to Dashboard" : "Get Started"}
+              </Link>
+              <Link
+                to={"/explore"}
+                className="bg-gradient-to-r shadow-xl from-primary to-primary/90 rounded-full p-4 text-white text-center"
+              >
+                Explore Events
+              </Link>
+            </div>
           </div>
           <div className=" w-full relative"></div>
         </section>

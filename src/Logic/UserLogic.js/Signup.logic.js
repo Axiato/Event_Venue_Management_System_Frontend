@@ -110,6 +110,7 @@ function SignupLogic() {
   }
 
   const signUpUser = async (e) => {
+    console.log(e);
     e?.preventDefault();
     if (!name || !email || !password || !CPassword) {
       toast.error("Please fill all fields");
@@ -124,7 +125,46 @@ function SignupLogic() {
     setSigningin((prev) => true);
     setValidateMessage((prev) => null);
     
-
+    //const account = new Account(client);
+    //const database = new Databases(client);
+    /*
+    try {
+      const response = await account.create(ID.unique(), email, password, name, role);
+      
+      const addUserToDBResponse = await database.createDocument(
+        process.env.REACT_APP_DATABASE_ID,
+        process.env.REACT_APP_USERS_COLLECTION_ID,
+        ID.unique(),
+        {
+          name,
+          email,
+          userId: response.$id,
+        }
+      )
+      
+      const loggedInResponse = await account.createEmailSession(
+        email,
+        password
+      );
+      
+      localStorage.setItem("token", JSON.stringify(loggedInResponse));
+      toast.success("Signed up successfully");
+      navigate("/auth/phone", {
+        replace: true,
+        state: {
+          ...loggedInResponse,
+          email,
+          password
+        }
+      });
+    } catch (error) {
+      
+      setValidateMessage((prev) => error.message);
+      toast.error(error.message);
+    } finally {
+      setSigningin((prev) => false);
+    }
+    */
   };
 
   return {
