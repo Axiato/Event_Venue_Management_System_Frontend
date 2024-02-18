@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public",
     "\\src",
     "\\src\\assets",
     "\\src\\assets\\images",
     "\\src\\components",
     "\\src\\layouts",
-    "\\src\\Logic\\EventsLogic",
+    "\\src\\Logic",
+    "\\src\\Logic\\Explore",
     "\\src\\pages",
-    "\\src\\pages\\landing"
+    "\\src\\pages\\dashboard"
   ],
-  "SelectedNode": "\\src\\assets\\images\\barcode.png",
+  "SelectedNode": "\\src\\pages\\dashboard\\Dashboard.js",
   "PreviewInSolutionExplorer": false
 }

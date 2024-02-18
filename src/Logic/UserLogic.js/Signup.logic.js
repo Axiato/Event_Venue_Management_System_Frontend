@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 
 function SignupLogic() {
+  const port = 3000;
+  const signIn_URL = "http://localhost:"+port+"/users/register";
+  const logIn_URL = "http://localhost:"+port+"/users/login";
+
   const [showPass, setShowPass] = useState(false);
   const [showCPass, setShowCPass] = useState(false);
   const [email, setEmail] = useState("");
@@ -89,12 +93,16 @@ function SignupLogic() {
       keyboard: "default",
       defaultValue: "Customer",
       options: [{
-          value: "Customer",
+          value: "customer",
           label: "Customer",
         },
         {
-          value: "Venue Owner",
+          value: "venueOwner",
           label: "Venue Owner",
+        },
+        {
+          value: "eventPlanner",
+          label: "Event Planner",
         },
         {
           value: "Admin",
@@ -111,8 +119,9 @@ function SignupLogic() {
 
   const signUpUser = async (e) => {
     console.log(e);
+    console.log(role);
     e?.preventDefault();
-    if (!name || !email || !password || !CPassword) {
+    if (!name || !email || !password || !CPassword || !role) {
       toast.error("Please fill all fields");
       setValidateMessage((prev) => "Please fill all fields");
       return;
@@ -124,47 +133,50 @@ function SignupLogic() {
     }
     setSigningin((prev) => true);
     setValidateMessage((prev) => null);
-    
-    //const account = new Account(client);
-    //const database = new Databases(client);
-    /*
-    try {
-      const response = await account.create(ID.unique(), email, password, name, role);
-      
-      const addUserToDBResponse = await database.createDocument(
-        process.env.REACT_APP_DATABASE_ID,
-        process.env.REACT_APP_USERS_COLLECTION_ID,
-        ID.unique(),
-        {
-          name,
-          email,
-          userId: response.$id,
-        }
-      )
-      
-      const loggedInResponse = await account.createEmailSession(
-        email,
-        password
-      );
-      
-      localStorage.setItem("token", JSON.stringify(loggedInResponse));
+
+    const data = {
+        name: name,
+        email: email,
+        role: role,
+    }
+
+    try{
+      const addUserResponse = await fetch(signIn_URL, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {"Content-Type": "application/JSON"},
+      })
+      const logInUserResponse = await fetch(logIn_URL,{
+        method:'POST',
+        body: JSON.stringify(data),
+        headers: {"Content-Type": "application/JSON"},
+      })
+
+      //add token
+
       toast.success("Signed up successfully");
+
       navigate("/auth/phone", {
         replace: true,
         state: {
-          ...loggedInResponse,
+          ...logInUserResponse,
           email,
           password
         }
       });
-    } catch (error) {
-      
-      setValidateMessage((prev) => error.message);
-      toast.error(error.message);
-    } finally {
-      setSigningin((prev) => false);
+
     }
-    */
+    catch (error){
+        setValidateMessage((prev) => error.message);
+        toast.error(error.message);
+        return;
+    }
+    finally{
+        setSigningin((prev) => false);
+    }
+
+    
+    
   };
 
   return {

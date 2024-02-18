@@ -22,7 +22,7 @@ function Landing() {
 
   
 
-  const testEvent1 = [
+  const testEvent1 = [ //remove once getEvents is done
     "The Nashville House",
     "Catering",
     "../assets/images/Test1.jpg",
@@ -30,9 +30,9 @@ function Landing() {
     "February 20",
   ]
 
-  const events = [testEvent1];
+  const events = [testEvent1]; //replace in function for getEvents()
 
-  const token = false;
+  const token = false; //replace with token
 
 
   return (

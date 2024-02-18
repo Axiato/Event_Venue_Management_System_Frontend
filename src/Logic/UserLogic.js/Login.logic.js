@@ -49,6 +49,22 @@ function LoginLogic() {
     e?.preventDefault();
     setSigningin((prev) => true);
     setValidateMessage((prev) => null);
+
+    const data = {
+        email: email,
+        password: password,
+    }
+
+    try {
+        const logInUserResponse = await fetch ()
+    }
+    catch{
+
+    }
+    finally{
+
+    }
+
   }
   
   return {

@@ -18,7 +18,7 @@ function Dashboard() {
 
   const {userInfo, setUserInfo} = useUser()
 
-  const role = "Venue Owner";
+  const role = "Customer";
   const token = true;
   
 
